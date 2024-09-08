@@ -24,11 +24,11 @@ module.exports = {
 
   async getPessoaById(req, res) {
     try {
-      const pessoa = await Pessoa.findByPk(req.params.id);  // Use "pessoa" no singular
+      const pessoa = await Pessoa.findByPk(req.params.id);  
       if (!pessoa) {
         return res.status(404).json({ error: "Pessoa não encontrada" });
       }
-      return res.status(200).json(pessoa);  // Retorne "pessoa" no singular
+      return res.status(200).json(pessoa);  
     } catch (error) {
       return res.status(400).json({ error: error.message });
     }
@@ -36,12 +36,12 @@ module.exports = {
 
   async updatePessoa(req, res) {
     try {
-      const pessoa = await Pessoa.findByPk(req.params.id);  // Use "pessoa" no singular
+      const pessoa = await Pessoa.findByPk(req.params.id);  
       if (!pessoa) {
         return res.status(404).json({ error: "Pessoa não encontrada" });
       }
-      await pessoa.update(req.body);  // Atualize a pessoa com "pessoa.update()"
-      return res.status(200).json(pessoa);  // Retorne a pessoa atualizada
+      await pessoa.update(req.body); 
+      return res.status(200).json(pessoa); 
     } catch (error) {
       return res.status(400).json({ error: error.message });
     }
@@ -49,12 +49,12 @@ module.exports = {
 
   async deletePessoa(req, res) {
     try {
-      const pessoa = await Pessoa.findByPk(req.params.id);  // Use "pessoa" no singular
+      const pessoa = await Pessoa.findByPk(req.params.id); 
       if (!pessoa) {
         return res.status(404).json({ error: "Pessoa não encontrada" });
       }
-      await pessoa.destroy();  // Remova a pessoa com "pessoa.destroy()"
-      return res.status(204).send();  // Envie resposta sem conteúdo
+      await pessoa.destroy(); 
+      return res.status(204).send(); 
     } catch (error) {
       return res.status(400).json({ error: error.message });
     }
